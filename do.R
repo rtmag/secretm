@@ -8,3 +8,18 @@ annotatePeaks.pl remap2018_RARA_nr_macs2_hg38_v1_2.bed hg38 -annStats remap2018_
 
 more HepG2_RARA.anno| cut -f 8,9,10,16 > HepG2_RARA.txt
 more remap2018_RARA_nr_macs2_hg38_v1_2.anno| cut -f 8,9,10,16 > remap2018_RARA_nr_macs2_hg38_v1_2.txt
+
+###
+#DW SRR
+~/myPrograms/sra-tools/sratoolkit.2.9.0-centos_linux64/bin/fastq-dump --split-files --gzip -Z SRR2056996 > SRR2056996.fastq
+
+STAR --genomeDir /root/resources/hg38_noanno/ \
+--readFilesCommand zcat \
+--runThreadN 35 \
+--alignIntronMax 1 \
+--alignEndsType EndToEnd \
+--readFilesIn /root/sjlab/deepa_tetoolkit/fastq/HCT116_siC_1_val_1.fq.gz \
+/root/sjlab/deepa_tetoolkit/fastq/HCT116_siC_2_val_2.fq.gz \
+--outFilterMultimapNmax 2 \
+--outSAMtype BAM SortedByCoordinate \
+--outFileNamePrefix /root/sjlab/STAR/test_rna/sic1/siC_1_
