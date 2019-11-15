@@ -18,8 +18,9 @@ STAR --genomeDir /root/resources/mm10/ \
 --runThreadN 35 \
 --alignIntronMax 1 \
 --alignEndsType EndToEnd \
---readFilesIn /root/sjlab/deepa_tetoolkit/fastq/HCT116_siC_1_val_1.fq.gz \
-/root/sjlab/deepa_tetoolkit/fastq/HCT116_siC_2_val_2.fq.gz \
+--readFilesIn SRR2056996.fastq \
 --outFilterMultimapNmax 2 \
 --outSAMtype BAM SortedByCoordinate \
---outFileNamePrefix /root/sjlab/STAR/test_rna/sic1/siC_1_
+--outFileNamePrefix SRR2056996_Aligned.sortedByCoord.out.bam
+
+bamCoverage -p max -bs 1 --normalizeUsing CPM -b SRR2056996 -o SRR2056996.bw 
