@@ -13,7 +13,7 @@ more remap2018_RARA_nr_macs2_hg38_v1_2.anno| cut -f 8,9,10,16 > remap2018_RARA_n
 #DW SRR
 ~/myPrograms/sra-tools/sratoolkit.2.9.0-centos_linux64/bin/fastq-dump --split-files --gzip -Z SRR2056996 > SRR2056996.fastq
 
-STAR --genomeDir /root/resources/hg38_noanno/ \
+STAR --genomeDir /root/resources/mm10/ \
 --readFilesCommand zcat \
 --runThreadN 35 \
 --alignIntronMax 1 \
