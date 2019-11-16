@@ -18,9 +18,12 @@ STAR --genomeDir /root/resources/mm10/ \
 --runThreadN 35 \
 --alignIntronMax 1 \
 --alignEndsType EndToEnd \
---readFilesIn SRR2056996.fastq \
+--readFilesIn SRR2056996.fastq.gz \
 --outFilterMultimapNmax 2 \
 --outSAMtype BAM SortedByCoordinate \
---outFileNamePrefix SRR2056996_Aligned.sortedByCoord.out.bam
-
-bamCoverage -p max -bs 1 --normalizeUsing CPM -b SRR2056996 -o SRR2056996.bw 
+--outFileNamePrefix SRR2056996_
+#
+bamCoverage -p max -bs 1 --normalizeUsing CPM -b SRR2056996_Aligned.sortedByCoord.out.bam -o SRR2056996.bw 
+####
+echo "done"
+####
