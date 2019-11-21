@@ -26,4 +26,18 @@ STAR --genomeDir /root/resources/mm10/ \
 bamCoverage -p max -bs 1 --normalizeUsing CPM -b SRR2056996_Aligned.sortedByCoord.out.bam -o SRR2056996.bw 
 ####
 echo "done"
+####SRR2054938
+
+STAR --genomeDir /root/resources/mm10/ \
+--readFilesCommand zcat \
+--runThreadN 35 \
+--alignIntronMax 1 \
+--alignEndsType EndToEnd \
+--readFilesIn SRR2054938.fastq.gz \
+--outFilterMultimapNmax 2 \
+--outSAMtype BAM SortedByCoordinate \
+--outFileNamePrefix SRR2054938_
+#
+samtools index SRR2054938_Aligned.sortedByCoord.out.bam
+bamCoverage -p max -bs 1 --normalizeUsing CPM -b SRR2054938_Aligned.sortedByCoord.out.bam -o SRR2054938.bw 
 ####
