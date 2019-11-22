@@ -42,11 +42,12 @@ samtools index SRR2054938_Aligned.sortedByCoord.out.bam
 bamCoverage -p max -bs 1 --normalizeUsing CPM -b SRR2054938_Aligned.sortedByCoord.out.bam -o SRR2054938.bw 
 ####
 
-macs2 callpeak -g hs -q 0.001 --keep-dup auto -n tip60_narrow --outdir ./ \
+macs2 callpeak -g mm -q 0.001 --keep-dup auto -n tip60_narrow --outdir ./ \
 -t SRR2056996_Aligned.sortedByCoord.out.bam -c SRR2054938_Aligned.sortedByCoord.out.bam &
 
-macs2 callpeak -g hs -q 0.001 --keep-dup auto --broad -n tip60_broad --outdir ./ \
+macs2 callpeak -g mm -q 0.001 --keep-dup auto --broad -n tip60_broad --outdir ./ \
 -t SRR2056996_Aligned.sortedByCoord.out.bam -c SRR2054938_Aligned.sortedByCoord.out.bam &
 #
 #####
-
+annotatePeaks.pl tip60_broad_peaks.broadPeak mm10 -annStats tip60_broad_peaks.annStats > tip60_broad_peaks.anno
+annotatePeaks.pl tip60_narrow_peaks.narrowPeak mm10 -annStats tip60_narrow_peaks.narrowPeak > tip60_narrow_peaks.anno
